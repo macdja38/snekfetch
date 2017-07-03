@@ -37,7 +37,7 @@ class Snekfetch extends Stream.Readable {
       loaders.file = fileLoader;
     }
 
-    this.request = [options.protocol.replace(':', '')].request(options);
+    this.request = loaders[options.protocol.replace(':', '')].request(options);
     if (opts.query) this.query(opts.query);
     if (opts.data) this.send(opts.data);
   }
